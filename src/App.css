@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: var(--bg);
 }
 
 .App-logo {
@@ -35,4 +36,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.dark_mode {
+  --bg: #000; /* Dark background */
+  --text: #fff; /* Dark text */
+  --border-color: #db8989;
+}
+
+.light_mode {
+  --bg: #fff; /* Light background */
+  --text: #000; /* Light text */
+  --border-color: #300e0e;
+}
+.__hello {
+  color: var(--text);
 }
