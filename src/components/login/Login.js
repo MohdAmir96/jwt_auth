@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { authContext } from "../../context";
 import Button from "../common/Button/Button";
+import "./Login.css";
 const Login = () => {
   const { setIsAuth } = useContext(authContext);
   const [loading, setLoading] = useState(false);
@@ -56,36 +57,34 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>{isRegistering ? "Register" : "Login"}</h2>
-      <input
-        // type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        // required
-      />
-      <br />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        // required
-      />
-      <br />
-      <Button
-        onClick={isRegistering ? handleRegister : handleLogin}
-        loading={loading}
-        text={isRegistering ? "Register" : "Login"}
-      />
-
-      <p>
-        {isRegistering ? "Already have an account?" : "Don't have an account?"}{" "}
-        <button onClick={() => setIsRegistering((prev) => !prev)}>
-          {isRegistering ? "Login here" : "Register here"}
-        </button>
-      </p>
+    <div className="auth-container">
+      <div className="auth-card">
+        <h2>{isRegistering ? "Register" : "Login"}</h2>
+        <input
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Button
+          onClick={isRegistering ? handleRegister : handleLogin}
+          loading={loading}
+          text={isRegistering ? "Register" : "Login"}
+        />
+        <p>
+          {isRegistering
+            ? "Already have an account?"
+            : "Don't have an account?"}{" "}
+          <button onClick={() => setIsRegistering((prev) => !prev)}>
+            {isRegistering ? "Login here" : "Register here"}
+          </button>
+        </p>
+      </div>
     </div>
   );
 };
