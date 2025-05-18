@@ -26,9 +26,9 @@ const Login = () => {
       navigate("/");
     } catch (error) {
       if (error.response) {
-        alert(error.response.data.message || "Login failed");
+        // alert(error.response.data.message || "Login failed");
       } else {
-        alert("Server error");
+        // alert("Server error");
       }
     }
     setLoading(false);
@@ -44,13 +44,13 @@ const Login = () => {
           withCredentials: true,
         }
       );
-      alert("Registration successful. You can now log in.");
+      //   alert("Registration successful. You can now log in.");
       setIsRegistering(false);
     } catch (error) {
       if (error.response) {
-        alert(error.response.data.message || "Registration failed");
+        // alert(error.response.data.message || "Registration failed");
       } else {
-        alert("Server error");
+        // alert("Server error");
       }
     }
     setLoading(false);
